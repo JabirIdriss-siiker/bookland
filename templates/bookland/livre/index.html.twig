@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Livre index{% endblock %}
+
+{% block body %}
+
+    <div class="jumbotron jumbotron-fluid text-center text-balck" style="background-color: #dce1f3;">
+        <div class="container">
+            <h1 class="display-4">Bienvenue sur Bookland</h1>
+            <p class="lead">Vous trouverez ici la liste des genres, livres et leurs acteurs proposés par notre bibliotheque.</p>
+        </div>
+       
+    </div>
+
+    <div class="container text-center mt-5">
+        <h1 class="display-4 mb-5">Livres</h1>
+        <div class="row">
+         {% for livre in livres %}
+            <div class="col-md-4 mb-5">
+                    <div class="card">
+                        <div class="card-body"> 
+                            <h5 class="card-title">{{ livre.titre |capitalize }}</h5>
+                                    <h6 class="card-subtitle mb-4 text-muted">
+                    
+                        
+                                
+                                    nbpages:{{ livre.nbpages }}<br>
+                                    date:{{ livre.DateParution ? livre.DateParution|date('Y-m-d') : '' }}<br>
+                                    note:{{ livre.note ~ '/20'}}<br>
+                                
+                                    </h6>
+                                
+                                    <a href="{{ path('livre_show', {'id': livre.id}) }}"class="btn btn-success">➕details...</a>
+                                    <a href="{{ path('livre_edit', {'id': livre.id}) }}"class="btn btn-danger ">⚙️ modifier</a>
+                        </div>
+                    </div>
+            </div>
+                         
+                        
+        
+        {% endfor %}
+      
+      
+                <div class="card-body text-center">
+                    <h5 class="card-title">Create New</h5>
+                        <a href="{{ path('livre_new') }}"class="btn btn-success">➕</a>
+                
+        
+                </div>
+                </div>
+    
+{% endblock %}

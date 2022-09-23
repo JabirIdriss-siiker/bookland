@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Auteur{% endblock %}
+
+{% block body %}
+         <div class="jumbotron jumbotron-fluid text-center text-balck" style="background-color: #dce1f3;">
+            <div class="container">
+                <h1 class="display-4">Bienvenue sur Bookland</h1>
+                <p class="lead">Vous trouverez ici la liste des genres, livres et leurs acteurs proposés par notre bibliotheque.</p>
+            </div>
+        
+    </div>
+    
+    <div class="container text-center mt-5">
+        <h1 class="display-4 mb-5">Show</h1>
+        
+            <div class=" mb-5">
+                <div class="card">
+                    <div class="card-body"> 
+                        <h4 class="card-title">Auteur {{ auteur.NomPrenom }}</h4>
+                         <h6 class="card-subtitle mb-4 text-muted">
+                        Sexe: {{ auteur.sexe }}<br>
+                        DateNaissance: {{ auteur.DateNaissance ? auteur.DateNaissance|date('Y-m-d') : '' }}<br>
+                        Nationalite: {{ auteur.nationalite }}<br>
+                        Livres :
+                        {% for auteur in auteur.livres %}
+                            {{ auteur.titre }}, 
+        
+                        {% endfor %}
+                        </h6>
+
+    
+    <a href="{{ path('auteur_edit', {'id': auteur.id}) }}" class="btn btn-danger ">edit</a>
+
+    {{ include('bookland/auteur/_delete_form.html.twig') }}
+    <a href="{{ path('auteur_index') }}" class ="btn btn-info">back to list</a>
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Livre{% endblock %}
+
+{% block body %}
+    <div class="jumbotron jumbotron-fluid text-center text-balck" style="background-color: #dce1f3;">
+            <div class="container">
+                <h1 class="display-4">Bienvenue sur Bookland</h1>
+                <p class="lead">Vous trouverez ici la liste des genres, livres et leurs acteurs proposés par notre bibliotheque.</p>
+            </div>
+        
+    </div>
+    
+    <div class="container text-center mt-5">
+        <h1 class="display-4 mb-5">Creation</h1>
+        
+            <div class=" mb-5">
+                <div class="card">
+                    <div class="card-body"> 
+                        <h4 class="card-title">Ajouter </h4>
+                            <h6 class="card-subtitle mb-6 ">
+                            {{ include('bookland/livre/_formSearch.html.twig') }}
+
+                            <a href="{{ path('livre_index') }}"class="btn btn-info">back to list</a>
+                    </div>
+                </div>
+            </div>
+    </div>
+{% endblock %}

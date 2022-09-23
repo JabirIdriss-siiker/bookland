@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bookland - Accueil{% endblock %}
+
+{% block body %}
+
+   <div class="jumbotron jumbotron-fluid text-center text-balck" style="background-color: #dce1f3;">
+        <div class="container">
+            <h1 class="display-4">Bienvenue sur Bookland</h1>
+            <p class="lead">Vous trouverez ici la liste des genres, livres et leurs acteurs proposés par notre bibliotheque.</p>
+        </div>
+       
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 mb-5">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <a href="{{ path('genre_index') }}">
+                            <h5 class="card-body">Voir Tous les genres des livres</h5>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-5">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <a href="{{ path('livre_index') }}">
+                            <h5 class="card-body">Voir Tous les Livres</h5>
+                        </a>
+                    </div>
+                </div>
+            </div>
+                <div class="col-md-6 mb-5">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <a href="{{ path('auteur_index') }}">
+                                <h5 class="card-body">Voir Tous les auteurs</h5>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+        
+       
+    </div>
+{% endblock %}
